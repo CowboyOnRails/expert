@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  position: 1
+  addon: MyString
+  parent_id: 1
+  metaitem_id: 1
+
+two:
+  name: 
+  position: 1
+  addon: MyString
+  parent_id: 1
+  metaitem_id: 1

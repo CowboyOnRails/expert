@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+ #Article.create([{:name=>'О компании', :position=>1})
+ # Article.create(:name=>'Юридические услуги', :position =>3)  

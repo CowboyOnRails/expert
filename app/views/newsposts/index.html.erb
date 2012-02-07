@@ -1,0 +1,29 @@
+<h1>Listing newsposts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Body</th>
+    <th>Posted</th>
+    <th>Metaitem</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @newsposts.each do |newspost| %>
+  <tr>
+    <td><%= newspost.name %></td>
+    <td><%= newspost.body %></td>
+    <td><%= newspost.posted %></td>
+    <td><%= newspost.metaitem_id %></td>
+    <td><%= link_to 'Show', newspost %></td>
+    <td><%= link_to 'Edit', edit_newspost_path(newspost) %></td>
+    <td><%= link_to 'Destroy', newspost, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Newspost', new_newspost_path %>

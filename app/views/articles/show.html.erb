@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @article.name %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @article.position %>
+</p>
+
+<p>
+  <b>Addon:</b>
+  <%= @article.addon %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @article.parent_id %>
+</p>
+
+
+<p>
+<%#= @article.to_json %>
+<%# metaitem=Metaitem.where(:page_id =>@article.id) %>
+<% if  @metaitem %>
+  <%= 'Title:'+@metaitem.title %>
+  <%= 'Desc:'+@metaitem.description %>
+  <%= 'Keys:'+@metaitem.keywords %>
+<%end%>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

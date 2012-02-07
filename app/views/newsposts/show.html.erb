@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @newspost.name %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @newspost.body %>
+</p>
+
+<p>
+  <b>Posted:</b>
+  <%= @newspost.posted %>
+</p>
+
+<p>
+  <b>Metaitem:</b>
+  <%= @newspost.metaitem_id %>
+</p>
+<p>
+  <% if @metaitem%>
+    <%= 'Title is '+@metaitem.title %>
+  <%end%>
+</p>
+
+
+<%= link_to 'Edit', edit_newspost_path(@newspost) %> |
+<%= link_to 'Back', newsposts_path %>

@@ -1,0 +1,29 @@
+<h1>Listing metaitems</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Keywords</th>
+    <th>Page</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @metaitems.each do |metaitem| %>
+  <tr>
+    <td><%= metaitem.title %></td>
+    <td><%= metaitem.description %></td>
+    <td><%= metaitem.keywords %></td>
+    <td><%= metaitem.page %></td>
+    <td><%= link_to 'Show', metaitem %></td>
+    <td><%= link_to 'Edit', edit_metaitem_path(metaitem) %></td>
+    <td><%= link_to 'Destroy', metaitem, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Metaitem', new_metaitem_path %>

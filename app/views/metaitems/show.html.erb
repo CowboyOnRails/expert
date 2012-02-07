@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @metaitem.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @metaitem.description %>
+</p>
+
+<p>
+  <b>Keywords:</b>
+  <%= @metaitem.keywords %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%= @metaitem.page %>
+</p>
+
+
+<%= link_to 'Edit', edit_metaitem_path(@metaitem) %> |
+<%= link_to 'Back', metaitems_path %>

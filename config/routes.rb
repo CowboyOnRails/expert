@@ -1,4 +1,19 @@
 Expert::Application.routes.draw do
+  def metaitems
+    resource :metaitems, :only => [:edit, :update]
+  end
+
+  resources :locations
+  resources :questions
+
+  resources :newsposts do 
+    metaitems
+  end
+
+  resources :articles do
+    metaitems
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
