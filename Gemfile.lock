@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mislav/will_paginate.git
+  revision: 71f793e1f4f23cafd144e95982f8a80ef6368d97
+  specs:
+    will_paginate (3.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -114,3 +120,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
+  will_paginate!

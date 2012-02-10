@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202055152) do
+ActiveRecord::Schema.define(:version => 20120209062750) do
 
   create_table "articles", :force => true do |t|
     t.string   "name",                            :null => false
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20120202055152) do
   add_index "articles", ["metaitem_id"], :name => "index_articles_on_metaitem_id"
   add_index "articles", ["parent_id"], :name => "index_articles_on_parent_id"
   add_index "articles", ["position"], :name => "index_articles_on_position"
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "title"
+    t.text     "message"
+    t.text     "spam"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "adress"
@@ -49,12 +59,12 @@ ActiveRecord::Schema.define(:version => 20120202055152) do
   add_index "metaitems", ["page_id"], :name => "index_metaitems_on_page_id"
 
   create_table "newsposts", :force => true do |t|
-    t.string   "name",        :null => false
+    t.string   "name",                       :null => false
     t.text     "body"
     t.date     "posted"
-    t.integer  "metaitem_id",  :null=>false, :default=>1
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "metaitem_id", :default => 1, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "newsposts", ["metaitem_id"], :name => "index_newsposts_on_metaitem_id"

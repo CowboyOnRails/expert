@@ -2,12 +2,8 @@ class NewspostsController < ApplicationController
   # GET /newsposts
   # GET /newsposts.json
   def index
-    @newsposts = Newspost.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @newsposts }
-    end
+    @newsposts = Newspost.paginate(:page=>params[:page],:per_page=>1).order('created_at DESC')
+     
   end
 
   # GET /newsposts/1

@@ -1,4 +1,15 @@
 Expert::Application.routes.draw do
+  resources :feedbacks do
+    member do
+      get 'new'
+      post 'create'
+    end
+    collection do
+      get 'new'
+    end
+  end
+
+
   def metaitems
     resource :metaitems, :only => [:edit, :update]
   end
@@ -14,6 +25,9 @@ Expert::Application.routes.draw do
     metaitems
   end
 
+  #root :to => "articles#show", :id => '1'
+  root :to => 'articles#index'
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

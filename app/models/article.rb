@@ -5,5 +5,9 @@ class Article < ActiveRecord::Base
 	belongs_to :father, :class_name=>'Article', :foreign_key => 'parent_id'
 
 	validates :name, :presence => true, :length => {:maximum => 255}
+    
+   #def to_param
+   #   "#{id}-#{name}"
+   #end
 
 end

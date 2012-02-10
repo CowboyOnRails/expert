@@ -1,0 +1,9 @@
+
+  <p>Пользователь <%= @feedback.name %>, направил вам сообщение.</p>
+  <h4><%= @feedback.title %></h4>
+  <p>
+       <%= @feedback.message %>.<br/>
+  </p>
+  <p>
+    <%= mail_to @feedback.email, 'Написать письмо'%>
+  </p>   
