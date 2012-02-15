@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  #Article.create([{:name=>'О компании', :position=>1})
  # Article.create(:name=>'Юридические услуги', :position =>3)  
+ User.create(:email=>'admin@admin.com',:password =>'password')

@@ -1,5 +1,5 @@
 Expert::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :skip => :registrations
 
   resources :feedbacks do
     member do
@@ -15,9 +15,8 @@ Expert::Application.routes.draw do
   def metaitems
     resource :metaitems, :only => [:edit, :update]
   end
-
+  
   resources :locations
-  resources :questions
 
   resources :newsposts do 
     metaitems

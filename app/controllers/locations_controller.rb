@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /locations
   # GET /locations.json
+  
   def index
     @locations = Location.all
 
@@ -35,6 +37,7 @@ class LocationsController < ApplicationController
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id])
+    #@location = Location.first
   end
 
   # POST /locations

@@ -1,0 +1,8 @@
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+<% end -%>
+<% if user_signed_in? %>
+   <%= link_to('logout', destroy_user_session_path) %>
+<% else %>
+  <%= link_to('login', new_user_session_path) %>
+<% end %>

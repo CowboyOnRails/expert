@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
-  #before_filter :find_metadata, :only => [:show, :destroy]
+  before_filter :authenticate_user!, :except => [:show,:index]
   def index
     @articles = Article.all
 
