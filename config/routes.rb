@@ -1,4 +1,6 @@
 Expert::Application.routes.draw do
+  devise_for :users
+
   resources :feedbacks do
     member do
       get 'new'

@@ -5,7 +5,7 @@ gem 'rails', '3.2.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '>=0.3.7'
 
 
 # Gems used only for assets and not required
@@ -39,3 +39,4 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git'
+gem 'devise', :git =>'git://github.com/plataformatec/devise.git'
