@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @partner.description %>
+</p>
+
+ <%= image_tag @partner.cover_image.thumb('100x100#').url if @partner.cover_image %>
+
+
+
+<%= link_to 'Edit', edit_partner_path(@partner) %> |
+<%= link_to 'Back', partners_path %>

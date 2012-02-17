@@ -59,5 +59,6 @@ module Expert
     config.assets.version = '1.0'
 
     config.cookie_secret = "valuec"
+    #Paperclip::Railtie.insert
   end
 end

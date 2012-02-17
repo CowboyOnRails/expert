@@ -1,0 +1,28 @@
+<%= form_for @partner,:html => { :multipart => true }  do |f| %>
+  <% if @partner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@partner.errors.count, "error") %> prohibited this partner from being saved:</h2>
+
+      <ul>
+      <% @partner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.file_field :cover_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div>
+   
+   <%= image_tag @partner.cover_image.thumb('100x100#').url if @partner.cover_image%>
+  </div>
+<% end %>

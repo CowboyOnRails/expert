@@ -38,5 +38,12 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'execjs'
 gem 'therubyracer'
+
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git'
+
 gem 'devise', :git =>'git://github.com/plataformatec/devise.git'
+#gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.10'
+               

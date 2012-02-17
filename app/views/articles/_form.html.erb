@@ -31,8 +31,13 @@
     <%= f.label :parent_id %><br />
     <%= f.number_field :parent_id %>
   </div>
+  <div class="field">
+   <%= f.file_field :cover_image %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
+   <%= image_tag @article.cover_image.thumb('100x100#').url if @article.cover_image %>
 <% end %>

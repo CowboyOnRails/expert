@@ -1,4 +1,6 @@
 Expert::Application.routes.draw do
+  resources :partners
+
   devise_for :users, :skip => :registrations
 
   resources :feedbacks do

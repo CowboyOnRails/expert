@@ -11,17 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214072042) do
+ActiveRecord::Schema.define(:version => 20120216114319) do
 
   create_table "articles", :force => true do |t|
-    t.string   "name",                            :null => false
+    t.string   "name",                                 :null => false
     t.text     "body"
-    t.integer  "position",    :default => 1,      :null => false
-    t.string   "addon",       :default => "none", :null => false
-    t.integer  "parent_id",   :default => 0,      :null => false
-    t.integer  "metaitem_id", :default => 1,      :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.integer  "position",         :default => 1,      :null => false
+    t.string   "addon",            :default => "none", :null => false
+    t.integer  "parent_id",        :default => 0,      :null => false
+    t.integer  "metaitem_id",      :default => 1,      :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "cover_image_uid"
+    t.string   "cover_image_name"
   end
 
   add_index "articles", ["metaitem_id"], :name => "index_articles_on_metaitem_id"
@@ -69,6 +71,14 @@ ActiveRecord::Schema.define(:version => 20120214072042) do
 
   add_index "newsposts", ["metaitem_id"], :name => "index_newsposts_on_metaitem_id"
   add_index "newsposts", ["posted"], :name => "index_newsposts_on_posted"
+
+  create_table "partners", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "cover_image_uid"
+    t.string   "cover_image_name"
+  end
 
   create_table "questions", :force => true do |t|
     t.text     "subject"
