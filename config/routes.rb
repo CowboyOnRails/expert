@@ -1,4 +1,5 @@
 Expert::Application.routes.draw do
+  resources :questions
   resources :partners
 
   devise_for :users, :skip => :registrations

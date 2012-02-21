@@ -4,7 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :name, :null=>false
       t.text :body
       t.integer :position, :null => false, :default => 1
-      t.string :addon, :null => false, :default=>'none'
+      t.string :addon, 
       t.integer :parent_id, :null=>false, :default => 0
       t.integer :metaitem_id, :null=>false, :default => 1
 
@@ -13,5 +13,6 @@ class CreateArticles < ActiveRecord::Migration
     add_index :articles, :parent_id
     add_index :articles, :position
     add_index :articles, :metaitem_id
+    add_index :articles, :addon
   end
 end

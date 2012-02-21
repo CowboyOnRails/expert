@@ -1,12 +1,14 @@
 ru:
-#  ativerecord:
-##    page: Страница
-#  attributes:
-   # profile:
- #   name: Название
-  #  body:Cодержание
-   # position: Позиция
-    #addon: Плагин
-    #parent_id: Родитель
-
-    
+  ativerecord:
+  models:
+    article: Страница
+  attributes:
+    profile:
+    name: Название
+    head: Заголовок 
+    body: Содержание
+    position: Позиция
+    addon: Плагин
+    parent_id: Родитель
+    slogan: Слоган
+     

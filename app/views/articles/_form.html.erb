@@ -16,6 +16,14 @@
     <%= f.text_field :name %>
   </div>
    <div class="field">
+    <%= f.label :slogan %><br />
+    <%= f.text_field :slogan %>
+  </div>
+  <div class="field">
+    <%= f.label :head %><br />
+    <%= f.text_field :head %>
+  </div>
+   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
@@ -25,17 +33,22 @@
   </div>
   <div class="field">
     <%= f.label :addon %><br />
-    <%= f.text_field :addon %>
+    <%= select_tag 'article[addon]', options_for_select({'без плагина'=>nil,'новости'=>'newsposts','партнеры'=>'parners','обратная связь'=>'feedback','вопрос - ответ'=>'questions'},@article.addon) %>
   </div>
   <div class="field">
     <%= f.label :parent_id %><br />
-    <%= f.number_field :parent_id %>
+    <%= select(:article,
+               :parent_id,
+               [["без родителя",1]]+Article.where(:parent_id=>1).collect {|p| [ p.name, p.id ] },:selected=>@article.parent_id) 
+     %>
   </div>
   <div class="field">
+  <%= f.label 'Изображение' %><br />
    <%= f.file_field :cover_image %>
   </div>
 
   <div class="actions">
+    <br/>
     <%= f.submit %>
   </div>
 

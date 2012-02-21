@@ -72,7 +72,7 @@ td { vertical-align: top; }
    ========================================================================== */
 
 body {
-    background: asset-url("main-bg.png",image) repeat-y center top #5b483d;
+    background: asset-url('main-bg.jpg',image) repeat-y center top #5b483d;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 #container {
@@ -97,14 +97,14 @@ body {
     top: 87px;
     right: 65px;
     font-size: 11px;
-    color: #B0A7A3;
+    color: #DEDEDE;
     text-align: right;
 }
 #horizontal-menu {
     margin: 0;
     height: 47px;
     padding-left: 23px;
-    background: asset-url("horizontal-menu-bg.png",image) repeat-x;
+    background: asset-url('horizontal-menu-bg.png',image) repeat-x;
     list-style-type: none;
 }
 #horizontal-menu li {
@@ -124,7 +124,7 @@ body {
     border-right: 1px solid #6d5b52;
 }
 #horizontal-menu li:hover {
-    background: asset-url("horizontal-menu-hover-bg.png", image) repeat-x;
+    background: asset-url('horizontal-menu-hover-bg.png',image) repeat-x;
     border-left: 1px solid #6d5b52;
     border-right: 1px solid #a6948b;
 }
@@ -167,13 +167,13 @@ body {
 }
 #secondary-menu .bg1 {
     float: left;
-    background: asset-url("secondary-menu.jpg",image) #efb548;
+    background: asset-url('secondary-menu.jpg',image) #efb548;
     width: 589px;
     height: 245px;
 }
 #secondary-menu .bg2 {
     float: right;
-    background: #815919;
+    background: asset-url('legalservices.jpg',image) #815919;
     width: 554px;
     height: 245px;
 }
@@ -192,7 +192,7 @@ body {
     height: 180px;
     top: 63px;
     left: 44px;
-    list-style-image: asset-url("list-type.png",image);
+    list-style-image: asset-url('list-type.png',image);
     list-style-position: inside;
     font-size: 12px;
     color: #FFFFFF;
@@ -231,11 +231,11 @@ body {
     height: 76px;
     border-top: 7px solid #3a3636;
     margin-bottom: 20px;
-    background: asset-url("footer-bg.png",image) repeat-y;
+    background: asset-url('footer-bg.png',image) repeat-y;
 }
 #footer #copyright {
     margin: 28px 0 38px 44px;
-    font-size: 11px;
+    font-size: 12px;
     color: #FFFFFF;
 }
 #footer #counter {
@@ -306,7 +306,7 @@ body {
     border-collapse: collapse;
 }
 #content .price-download {
-    list-style-image: asset-url("word-icon.jpg",image);
+    list-style-image: asset-url('word-icon.jpg',image);
     list-style-position: inside;
     padding: 0;
 }
@@ -365,7 +365,7 @@ body {
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
-   /* Style adjustments for viewports that meet the condition */
+	/* Style adjustments for viewports that meet the condition */
 }
 
 /* =============================================================================

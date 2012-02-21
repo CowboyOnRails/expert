@@ -1,0 +1,6 @@
+   
+        <% if image %>
+            <%= content_tag :div, {:class =>'bg2',:style =>"background: url('#{image.url}')"} do end%>
+        <% else %>
+             <%= content_tag :div,{ :class =>'bg2'} do end%>
+        <% end %>

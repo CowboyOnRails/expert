@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Expert</title>
+  <title><%= yield :title %></title>
+  <meta name="description" content="<%= yield :description %>">
+  <meta name="keywords" content="<%= yield :keywords %>">
   
   <%= stylesheet_link_tag 'style' %>
   <%= javascript_include_tag "application" %>
@@ -10,30 +12,41 @@
 <body>
 <div id="container">
     <div id="header">
-        <%= image_tag "logo.png", :size => '451x128' %>
+        <%= link_to (image_tag "logo.png", :size => '451x128',:id =>'logo'), root_path %>
         <div id="navigation">
-            <%= link_to image_tag ('nav-home.png'), {} %>
-            <%= link_to image_tag ('nav-mailto.png'), {} %>
+            <%= link_to (image_tag ('nav-home.png')), root_path %>        
+            <%= link_to (image_tag ('nav-mailto.png')), new_feedback_path %>
         </div>
-        <div id="contacts">Компания «Эксперт», 2008г. г. Екатеринбург, ул. Первомайская, д. 12, оф. 311<br>тел (343) 311-11-11, 311-11-11,<br>e-mail: 111111@mail.ru</div>
+
+        <div id="contacts">
+        <% if @current_location %>
+          <%= @current_location.adress%><br>
+          тел.: <%= @current_location.phone %>,<br>
+          e-mail: <%= @current_location.email %>
+        <% end %>
+        </div>
+
     </div>
-    
     <ul id="horizontal-menu">
-        <li class="first"><a href="#">о компании</a></li>
-        <li><a href="#">новости</a></li>
-        <li><a href="#">юридические услуги</a></li>
-        <li><a href="#">экономическая безопастность</a></li>
-        <li><a href="#">контрольно-ревизионные услуги</a></li>
-        <li><a href="#">партнеры</a></li>
-        <li><a href="#">справка</a></li>
-        <li><a href="#">обратная связь</a></li>
-        <li class="last"><a href="#">контакты</a></li>
+      <%if @main_menu %>
+        <li class="first">        
+          <%= menu_link @main_menu[0] if @main_menu[0] %>
+        </li>
+       
+        <% @main_menu[1..@main_menu.length-2].each do |article|  %>                 
+           <li><%= menu_link article if article %>  </li>    
+        <% end %>
+       
+        <li class="last">
+          <%= menu_link @main_menu.last if @main_menu.last %>
+        </li>
+       <% end %>  
     </ul>
    
    <%= yield %>
    
     <div id="footer">
-        <p id="copyright">© 2007 – 2011. Все права защищены ЗАО «Юридическая компания «Эксперт».</p>
+        <p id="copyright"><%= @current_location.copyright if @current_location %></p>
         <div id="counter">
             <%= image_tag ('counter.png'), {} %>
         </div>

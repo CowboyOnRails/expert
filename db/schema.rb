@@ -11,19 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216114319) do
+ActiveRecord::Schema.define(:version => 20120221132349) do
 
   create_table "articles", :force => true do |t|
-    t.string   "name",                                 :null => false
+    t.string   "name",                             :null => false
     t.text     "body"
-    t.integer  "position",         :default => 1,      :null => false
-    t.string   "addon",            :default => "none", :null => false
-    t.integer  "parent_id",        :default => 0,      :null => false
-    t.integer  "metaitem_id",      :default => 1,      :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "position",         :default => 1,  :null => false
+    t.string   "addon"
+    t.integer  "parent_id",        :default => 1,  :null => false
+    t.integer  "metaitem_id",      :default => -1, :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "cover_image_uid"
     t.string   "cover_image_name"
+    t.string   "slogan"
+    t.string   "head"
   end
 
   add_index "articles", ["metaitem_id"], :name => "index_articles_on_metaitem_id"
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20120216114319) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "copyright"
+    t.string   "sitename"
   end
 
   create_table "metaitems", :force => true do |t|

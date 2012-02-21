@@ -1,6 +1,7 @@
 class NewspostsController < ApplicationController
   # GET /newsposts
   # GET /newsposts.json
+  before_filter :find_article
   def index
     @newsposts = Newspost.paginate(:page=>params[:page],:per_page=>1).order('created_at DESC')
      
@@ -78,5 +79,9 @@ class NewspostsController < ApplicationController
       format.html { redirect_to newsposts_url }
       format.json { head :no_content }
     end
+  end
+
+  def find_article
+    @article = Article.where(:addon=>'newsposts').first
   end
 end

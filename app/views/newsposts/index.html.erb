@@ -1,29 +1,20 @@
-<h1>Listing newsposts</h1>
+<% parse_metadata(@article) %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Body</th>
-    <th>Posted</th>
-    <th>Metaitem</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>
 
-<% @newsposts.each do |newspost| %>
-  <tr>
-    <td><%= newspost.name %></td>
-    <td><%= newspost.body %></td>
-    <td><%= newspost.posted %></td>
-    <td><%= newspost.metaitem_id %></td>
-    <td><%= link_to 'Show', newspost %></td>
-    <td><%= link_to 'Edit', edit_newspost_path(newspost) %></td>
-    <td><%= link_to 'Destroy', newspost, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="content">
+  <%= content_tag :h1, @article.head if @article.head.present? %> 
+  
+  <% @newsposts.each do |newspost| %>
+    <h2 class = "news">
+      <%= link_to newspost.posted.to_s + ' ' + newspost.name, newspost %>
+    </h2>
+    <p class="news">
+      <%= newspost.body %>
+    </p>
+  <% end %>
 
-<br />
-<%= will_paginate @newsposts %>
-<%= link_to 'New Newspost', new_newspost_path %>
+
+  <br />
+  <%= will_paginate @newsposts %>
+</div>

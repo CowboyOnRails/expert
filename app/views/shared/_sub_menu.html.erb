@@ -1,0 +1,40 @@
+ <div id="secondary-menu">
+        <% if article.slogan %>
+          <h2 class="page-title"><%= article.slogan %></h2>
+        <%end%>
+       
+        <% childs = Article.where(:parent_id => article.id)%>
+        <% left_column = childs[0..7] %>
+        <% right_column = childs[8..childs.length-1] %>
+       
+        <% if left_column %>
+          <ul class="menu">            
+            <% left_column.each do |article|%>
+               <li><%= link_to article.name, article_path(article)%></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <% if right_column %>
+         <ul class="menu shifted">
+            <% right_column.each do |article|%>
+               <li><%= link_to article.name, article_path(article) %></li>
+            <% end %>
+         </ul>
+        <% end %>
+
+        <div class="bg1"></div>
+
+        <% image = sub_menu_image (article) %> 
+        
+        <% if image %>
+          <%= content_tag :div, {:class =>'bg2',:style =>"background: url('#{image.url}')"} do end%>
+        <% else %>
+           <%= content_tag :div,{ :class =>'bg2'} do end%>
+        <% end %>
+                
+ <%# image = article.addon.present? ? sub_menu_image_for_addon(article.addon) : sub_menu_image(article) %>
+
+ <%#= render :partial => '/shared/sub_menu_image', :locals => {:image => sub_menu_image(article) } %>
+       
+   </div>

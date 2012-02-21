@@ -1,27 +1,14 @@
 class ArticlesController < ApplicationController
-  # GET /articles
-  # GET /articles.json
-  before_filter :authenticate_user!, :except => [:show,:index]
+ 
   def index
-    @articles = Article.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @articles }
-    end
+    #@articles = Article.all
+    @article = Article.where(:parent_id=>0).first
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @article =  Article.find(params[:id])    
-    #@metaitem = Metaitem.where(:page_type=>'Article',:page_id=>@article.id).first
-    @metaitem = @article.metaitem
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @article }
-    end
+    @article =  Article.find(params[:id]) 
   end
 
   # GET /articles/new
