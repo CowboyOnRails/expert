@@ -3,8 +3,8 @@ class NewspostsController < ApplicationController
   # GET /newsposts.json
   before_filter :find_article
   def index
-    @newsposts = Newspost.paginate(:page=>params[:page],:per_page=>1).order('created_at DESC')
-     
+    @page = params[:page]
+    @newsposts = Newspost.paginate(:page=>@page,:per_page=>1).order('created_at DESC')     
   end
 
   # GET /newsposts/1
@@ -76,7 +76,7 @@ class NewspostsController < ApplicationController
     @newspost.destroy
 
     respond_to do |format|
-      format.html { redirect_to newsposts_url }
+      format.html { redirect_to newsposts_path }
       format.json { head :no_content }
     end
   end

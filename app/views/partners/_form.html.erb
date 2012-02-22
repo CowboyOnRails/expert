@@ -13,9 +13,10 @@
 
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :cover_image%><br/>
     <%= f.file_field :cover_image %>
   </div>
   <div class="actions">
@@ -23,6 +24,6 @@
   </div>
   <div>
    
-   <%= image_tag @partner.cover_image.thumb('100x100#').url if @partner.cover_image%>
+   <%= image_tag @partner.cover_image.thumb('150x150#').url if @partner.cover_image%>
   </div>
 <% end %>

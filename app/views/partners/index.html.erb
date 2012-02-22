@@ -1,23 +1,19 @@
-<h1>Listing partners</h1>
+<% content_for :title, 'страница '+@page.to_s+' - ' %>
+<% parse_metadata @article %>
 
-<table>
+<%= render_sub_menu @article %>
+
+<div id="content">
+  <%= content_tag :h1, @article.head if @article.head.present? %>
+  <table class="partners">
+  <% @partners.each do |partner| %>
   <tr>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td><%= image_tag partner.cover_image.thumb('150x150#').url if partner.cover_image %></td>
+    <td><%= partner.description %></td>    
   </tr>
+  <% end %>
+  </table>
 
-<% @partners.each do |partner| %>
-  <tr>
-    <td><%= partner.description %></td>
-    <td><%= link_to 'Show', partner %></td>
-    <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
-    <td><%= link_to 'Destroy', partner, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-<%= will_paginate @partners %>
-<%= link_to 'New Partner', new_partner_path %>
+  <br />
+  <%= will_paginate @partners %>
+</div>

@@ -4,22 +4,14 @@ Expert::Application.routes.draw do
 
   devise_for :users, :skip => :registrations
 
-  resources :feedbacks do
-    member do
-      get 'new'
-      post 'create'
-    end
-    collection do
-      get 'new'
-    end
-  end
+  resources :feedbacks, :only => [:new, :create]
 
 
   def metaitems
     resource :metaitems, :only => [:edit, :update]
   end
   
-  resources :locations
+  resources :locations, :only => [:edit, :update]
 
   resources :newsposts do 
     metaitems

@@ -1,13 +1,11 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
+  before_filter :find_article
   def index
-    @questions = Question.all
+    @page = params[:page]
+    @questions = Question.paginate(:page=>@page,:per_page=>1).order('created_at DESC')
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @questions }
-    end
   end
 
   # GET /questions/1
@@ -60,7 +58,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to @questions, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,8 +74,11 @@ class QuestionsController < ApplicationController
     @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to questions_url }
+      format.html { redirect_to questions_path }
       format.json { head :no_content }
     end
+  end
+  def find_article
+    @article = Article.where(:addon=>'questions').first
   end
 end

@@ -1,0 +1,15 @@
+ <div id="toolbar">
+       <ul>
+           <li><%= link_to "Добавить раздел", new_article_path %></li>
+           
+           <%if @article %>
+           <li><%= link_to "Изменить раздел", edit_article_path(@article) %></li>
+           <li>
+           <%= link_to "Удалить раздел", @article, confirm: 'Вы уверены?', method: :delete %>
+           </li>
+           <%end%>
+
+           <li><%= link_to "Настройки", edit_location_path(:id=>1) %></li>
+           <li><%= link_to "Выход", destroy_user_session_path %></li>
+       </ul>
+  </div>

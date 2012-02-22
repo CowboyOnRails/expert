@@ -6,7 +6,7 @@
   <meta name="keywords" content="<%= yield :keywords %>">
   
   <%= stylesheet_link_tag 'style' %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -50,13 +50,13 @@
         <div id="counter">
             <%= image_tag ('counter.png'), {} %>
         </div>
-    </div>
-
+    </div> 
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script><script src="js/libs/jquery-1.7.1.min.js"></script>
 
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
+ <% if user_signed_in? %>
+   <%= render "shared/tool_bar"%>
+  <% end %>
+
+
 </body>
 </html>

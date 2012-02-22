@@ -28,7 +28,7 @@
         <% image = sub_menu_image (article) %> 
         
         <% if image %>
-          <%= content_tag :div, {:class =>'bg2',:style =>"background: url('#{image.url}')"} do end%>
+          <%= content_tag :div, {:class =>'bg2',:style =>"background: url('#{image.thumb('554x245#').url}')"} do end%>
         <% else %>
            <%= content_tag :div,{ :class =>'bg2'} do end%>
         <% end %>

@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   # POST /articles.json
-  def create   
+  def create 
     @article = Article.new(params[:article])
 
 

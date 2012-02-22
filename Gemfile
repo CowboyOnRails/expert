@@ -46,4 +46,5 @@ gem 'devise', :git =>'git://github.com/plataformatec/devise.git'
 
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.10'
+gem 'tinymce-rails','~>3.4.7'
                

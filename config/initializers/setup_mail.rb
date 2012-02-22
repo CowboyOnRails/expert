@@ -9,7 +9,7 @@ ActionMailer::Base.smtp_settings = {
 
   :user_name            => "victor.pukman",
 
-  :password             => "04081990g",
+  :password             => "04081990",
 
   :authentication       => "plain",
 

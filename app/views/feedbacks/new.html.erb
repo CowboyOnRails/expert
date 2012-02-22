@@ -1,5 +1,10 @@
-<h1>New feedback</h1>
+<% parse_metadata @article %>
 
+<%= render_sub_menu @article %>
+<div id="content">
+<%= content_tag :h1, @article.head if @article.head.present? %>
+<%= content_tag :p, @article.body if @article.body.present? %>
+<p class="tip"><%= notice.blank? ? alert : notice%></p>
 <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', feedbacks_path %>

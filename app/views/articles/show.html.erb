@@ -1,6 +1,7 @@
 <% parse_metadata @article %>
 
-<%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>
+<%= render_sub_menu @article %>
+
 
     <div id="content">
         <%= content_tag :h1, @article.head if @article.head.present? %>      

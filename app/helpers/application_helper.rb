@@ -37,10 +37,10 @@ module ApplicationHelper
 
     end
 
-    def parse_metadata_for_addon(addon)
-      article = Article.where(:addon=>addon).first
-      parse_metadata (article) if article
-    end
+    #def parse_metadata_for_addon(addon)
+    #  article = Article.where(:addon=>addon).first
+    #  parse_metadata (article) if article
+    #end
 
     def sub_menu_image(article)
       if article.parent_id ==1
@@ -56,8 +56,15 @@ module ApplicationHelper
       end
     end
 
-    def sub_menu_image_for_addon(addon)
-      article = Article.where(:addon=>addon).first
-      sub_menu_image(article)
+    #def sub_menu_image_for_addon(addon)
+    #  article = Article.where(:addon=>addon).first
+    #  sub_menu_image(article)
+    #end
+
+    def render_sub_menu(article)
+      parent = article  
+      parent = Article.find(article.parent_id) if article.parent_id!=1
+
+      render :partial =>'/shared/sub_menu', :locals => {:article => parent}
     end
 end

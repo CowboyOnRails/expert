@@ -1,7 +1,8 @@
 class PartnersController < ApplicationController
-  
+  before_filter :find_article
   def index
-    @partners = Partner.paginate(:page=>params[:page],:per_page=>1).order('created_at DESC')
+    @page = params[:page]
+    @partners = Partner.paginate(:page=>@page,:per_page=>1).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,5 +79,8 @@ class PartnersController < ApplicationController
       format.html { redirect_to partners_url }
       format.json { head :no_content }
     end
+  end
+  def find_article
+    @article = Article.where(:addon=>'partners').first
   end
 end

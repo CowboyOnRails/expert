@@ -1,25 +1,21 @@
-<h1>Listing questions</h1>
+<% content_for :title, 'страница '+@page.to_s+' - ' %>
+<% parse_metadata(@article) %>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>
 
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.subject %></td>
-    <td><%= question.body %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="content">
+  <%= content_tag :h1, @article.head if @article.head.present? %> 
+  
+  <% @questions.each do |q| %>
+    <p class = "news">
+      <strong><%= q.subject %></strong>
+    </p>
+    <p class="news">
+      <%= q.body %>
+    </p><br/>
+  <% end %>
 
-<br />
 
-<%= link_to 'New Question', new_question_path %>
+  <br />
+  <%= will_paginate @questions %>
+</div>

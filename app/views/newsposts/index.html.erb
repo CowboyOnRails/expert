@@ -1,3 +1,4 @@
+<% content_for :title, 'страница '+@page.to_s+' - ' %>
 <% parse_metadata(@article) %>
 
 <%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>

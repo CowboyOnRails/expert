@@ -2,13 +2,19 @@ ru:
   ativerecord:
   models:
     article: Страница
+    location: Настройки
   attributes:
     profile:
-    name: Название
+    name: Имя
     head: Заголовок 
     body: Содержание
     position: Позиция
     addon: Плагин
     parent_id: Родитель
     slogan: Слоган
+    adress: Адрес
+    phone: Телефон
+    email: Почта
+    copyright: Копирайт
+    sitename: Сайт
      

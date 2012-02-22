@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221132349) do
+ActiveRecord::Schema.define(:version => 20120222093154) do
 
   create_table "articles", :force => true do |t|
     t.string   "name",                             :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120221132349) do
     t.string   "head"
   end
 
+  add_index "articles", ["addon"], :name => "index_articles_on_addon"
   add_index "articles", ["metaitem_id"], :name => "index_articles_on_metaitem_id"
   add_index "articles", ["parent_id"], :name => "index_articles_on_parent_id"
   add_index "articles", ["position"], :name => "index_articles_on_position"
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20120221132349) do
   add_index "newsposts", ["posted"], :name => "index_newsposts_on_posted"
 
   create_table "partners", :force => true do |t|
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "cover_image_uid"
