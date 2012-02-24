@@ -1,3 +1,4 @@
+# encoding:UTF-8
 module ApplicationHelper
 	def menu_link(article)
   	addons = Hash[
@@ -20,7 +21,7 @@ module ApplicationHelper
     	title = article.name
 
         if article.metaitem.present?
-           title = article.metaitem.title if article.metaitem.title
+           title = article.metaitem.title if article.metaitem.title.present?
 
            description = article.metaitem.description
            content_for :description, description
@@ -66,5 +67,14 @@ module ApplicationHelper
       parent = Article.find(article.parent_id) if article.parent_id!=1
 
       render :partial =>'/shared/sub_menu', :locals => {:article => parent}
+    end
+
+    def addon_new_link(addon)
+      addons={
+       'newsposts' => {:name => 'Добавить новость',      :link => new_newspost_path},
+       'partners'  => {:name =>'Добавить партнера',      :link => new_partner_path},
+       'questions' => {:name => 'Добавить ответ', :link => new_question_path},
+      }
+      link_to addons[addon][:name], addons[addon][:link] if addons.include?(addon)
     end
 end

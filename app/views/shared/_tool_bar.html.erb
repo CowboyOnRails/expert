@@ -2,12 +2,34 @@
        <ul>
            <li><%= link_to "Добавить раздел", new_article_path %></li>
            
-           <%if @article %>
-           <li><%= link_to "Изменить раздел", edit_article_path(@article) %></li>
-           <li>
-           <%= link_to "Удалить раздел", @article, confirm: 'Вы уверены?', method: :delete %>
-           </li>
+           <%if @article.present? %>
+             <li><%= link_to "Изменить раздел", edit_article_path(@article) %></li>
+             <li>
+              <%= link_to "Удалить раздел", @article, confirm: 'Вы уверены?', method: :delete %>
+             </li>           
+          
+             
+           <% if @article.addon.present? %>
+             <li><%= addon_new_link(@article.addon) %></li>  
            <%end%>
+
+            
+          
+           
+            <% concat content_tag :li, (link_to 'Метаданные раздела',
+                 edit_article_metaitems_path(@article)) if @newspost.blank? %>
+          
+         
+
+           <%end%>
+
+            <%if @newspost.present?%>
+             <li>
+               <%= link_to 'Метаданные новости', edit_newspost_metaitems_path(@newspost) %>
+             </li>
+            <%end%>
+
+
 
            <li><%= link_to "Настройки", edit_location_path(:id=>1) %></li>
            <li><%= link_to "Выход", destroy_user_session_path %></li>

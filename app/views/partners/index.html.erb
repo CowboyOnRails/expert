@@ -1,4 +1,4 @@
-<% content_for :title, 'страница '+@page.to_s+' - ' %>
+<% content_for :title, 'страница '+(@page ? @page.to_s : '1')+' - ' %>
 <% parse_metadata @article %>
 
 <%= render_sub_menu @article %>
@@ -8,8 +8,21 @@
   <table class="partners">
   <% @partners.each do |partner| %>
   <tr>
+
     <td><%= image_tag partner.cover_image.thumb('150x150#').url if partner.cover_image %></td>
-    <td><%= partner.description %></td>    
+    
+    <td>
+    <%= partner.description.try(:html_safe) %>
+     
+    <%if user_signed_in?%>
+     <p>
+       <%= link_to 'Редактор', edit_partner_path(partner)%> 
+       <%= link_to 'Удалить', partner, confirm: 'Вы уверены?', method: :delete%>
+     </p>
+    <%end%>
+
+    </td>  
+          
   </tr>
   <% end %>
   </table>

@@ -1,4 +1,4 @@
-<% content_for :title, 'страница '+@page.to_s+' - ' %>
+<% content_for :title, 'страница '+(@page ? @page.to_s : '1')+' - ' %>
 <% parse_metadata(@article) %>
 
 <%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>
@@ -8,11 +8,20 @@
   
   <% @questions.each do |q| %>
     <p class = "news">
-      <strong><%= q.subject %></strong>
+      <strong><%= q.subject.try(:html_safe) %></strong>
     </p>
     <p class="news">
-      <%= q.body %>
-    </p><br/>
+      <%= q.body.try(:html_safe) %>
+    </p>
+
+    <%if user_signed_in?%>
+    <p>
+     <%= link_to 'Редактор', edit_question_path(q)%> 
+     <%= link_to 'Удалить', q, confirm: 'Вы уверены?', method: :delete%>
+     </p>
+    <%end%>
+
+    <br/>
   <% end %>
 
 

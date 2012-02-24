@@ -4,14 +4,14 @@ class NewspostsController < ApplicationController
   before_filter :find_article
   def index
     @page = params[:page]
-    @newsposts = Newspost.paginate(:page=>@page,:per_page=>1).order('created_at DESC')     
+    @newsposts = Newspost.paginate(:page=>@page,:per_page=>5).order('created_at DESC')     
   end
 
   # GET /newsposts/1
   # GET /newsposts/1.json
   def show
     @newspost = Newspost.find(params[:id])
-    @metaitem = @newspost.metaitem
+    #@metaitem = @newspost.metaitem
 
     respond_to do |format|
       format.html # show.html.erb

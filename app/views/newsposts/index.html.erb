@@ -1,4 +1,4 @@
-<% content_for :title, 'страница '+@page.to_s+' - ' %>
+<% content_for :title, 'страница '+ (@page ? @page.to_s : '1')+' - ' %>
 <% parse_metadata(@article) %>
 
 <%= render :partial =>'/shared/sub_menu', :locals => {:article => @article} %>
@@ -11,8 +11,17 @@
       <%= link_to newspost.posted.to_s + ' ' + newspost.name, newspost %>
     </h2>
     <p class="news">
-      <%= newspost.body %>
+      <%= newspost.body.truncate(255,:omission => '...',:separator=>' ').try(:html_safe) %>
     </p>
+    
+
+    <%if user_signed_in?%>
+    <p>
+     <%= link_to 'Редактор', edit_newspost_path(newspost)%> 
+     <%= link_to 'Удалить', newspost, confirm: 'Вы уверены?', method: :delete%>
+     </p>
+    <%end%>
+
   <% end %>
 
 

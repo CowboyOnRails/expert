@@ -2,7 +2,7 @@ class PartnersController < ApplicationController
   before_filter :find_article
   def index
     @page = params[:page]
-    @partners = Partner.paginate(:page=>@page,:per_page=>1).order('created_at DESC')
+    @partners = Partner.paginate(:page=>@page,:per_page=>3).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,7 @@ class PartnersController < ApplicationController
 
     respond_to do |format|
       if @partner.save
-        format.html { redirect_to @partner, notice: 'Partner was successfully created.' }
+        format.html { redirect_to partners_path, notice: 'Partner was successfully created.' }
         format.json { render json: @partner, status: :created, location: @partner }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class PartnersController < ApplicationController
 
     respond_to do |format|
       if @partner.update_attributes(params[:partner])
-        format.html { redirect_to @partner, notice: 'Partner was successfully updated.' }
+        format.html { redirect_to partners_path, notice: 'Partner was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

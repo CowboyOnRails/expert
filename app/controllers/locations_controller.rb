@@ -63,7 +63,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.update_attributes(params[:location])
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to articles_path, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

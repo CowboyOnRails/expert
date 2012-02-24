@@ -340,7 +340,7 @@ body {
 
 /* TOOLBAR */
 #toolbar {
-    height: 45px; width: 100%;
+    height: 35px; width: 100%;
     position: fixed; bottom: 0;
     background: #000; opacity: 0.6;
     text-align: center;
@@ -348,8 +348,8 @@ body {
     #toolbar UL {
         margin: 0 0 0 -30px; padding: 5px 0 0 0;
         width: 1002px; display: inline-block;
-        font-size: 1em; text-align: left;
-        font-family: Gill, Helvetica, sans-serif;
+        font-size: 15px; text-align: left;
+        font-family: Calibry,Gill, Helvetica, sans-serif;
     }
         #toolbar UL LI {
             display: inline-block;
@@ -359,7 +359,22 @@ body {
             #toolbar UL LI A {}
             #toolbar UL LI A:link, #toolbar UL LI A:visited {color: #479AED; text-decoration: none;}
             #toolbar UL LI A:hover, #toolbar UL LI A:active {color: #FFF; text-decoration: underline;}
+/*EDITOR FORM*/
 
+#content .editor_form .mceToolbar table{
+   border:none;
+}
+#content .editor_form .mceToolbar td {
+    padding: 0px;
+    border: none;
+}
+.field_with_errors {
+    span.error {
+        color: red;
+        padding: 0 0 0 7px;
+        display: block;
+    }
+}
 /* =============================================================================
    Media Queries
    ========================================================================== */

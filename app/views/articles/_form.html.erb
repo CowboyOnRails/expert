@@ -1,4 +1,5 @@
-<%= form_for(@article) do |f| %>
+
+<%= form_for @article,:html=>{:class=>'editor_form'} do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -49,11 +50,12 @@
 
   <div class="actions">
     <br/>
-    <%= f.submit %>
+    <%= f.submit 'Сохранить' %>
   </div>
 
    <%= image_tag @article.cover_image.thumb('100x100#').url if @article.cover_image %>
 <% end %>
 
   <%= render "/shared/tinymce"%>
+ 
 

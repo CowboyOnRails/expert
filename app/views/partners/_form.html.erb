@@ -1,4 +1,4 @@
-<%= form_for @partner,:html => { :multipart => true }  do |f| %>
+<%= form_for @partner,:html => { :multipart => true, :class =>'editor_form' }  do |f| %>
   <% if @partner.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@partner.errors.count, "error") %> prohibited this partner from being saved:</h2>
@@ -20,10 +20,11 @@
     <%= f.file_field :cover_image %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Сохранить' %>
   </div>
   <div>
    
    <%= image_tag @partner.cover_image.thumb('150x150#').url if @partner.cover_image%>
   </div>
 <% end %>
+<%= render 'shared/tinymce'%>

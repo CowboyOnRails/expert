@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_filter :find_article
   def index
     @page = params[:page]
-    @questions = Question.paginate(:page=>@page,:per_page=>1).order('created_at DESC')
+    @questions = Question.paginate(:page=>@page,:per_page=>5).order('created_at DESC')
 
   end
 
@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to questions_path, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -58,7 +58,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
-        format.html { redirect_to @questions, notice: 'Question was successfully updated.' }
+        format.html { redirect_to questions_path, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
